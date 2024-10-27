@@ -1,0 +1,221 @@
+<app-header></app-header>
+
+<section class="h-screen flex items-center justify-center bg-gradient-to-r from-blue-900 via-gray-800 to-blue-900 text-white relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-r from-transparent to-blue-700 opacity-20 pointer-events-none"></div>
+
+  <div class="container mx-auto flex flex-col md:flex-row items-center px-4">
+    <!-- Imagen con animación de aparición -->
+    <div
+      class="w-full md:w-1/2 mb-8 md:mb-0 opacity-0 transform -translate-x-10 transition duration-1000 ease-out"
+      [ngClass]="{'opacity-100 translate-x-0': isVisible}"
+    >
+      <img src="https://www.varadero.es/wp-content/uploads/2020/03/servcios-it-desarrollo-software.png" alt="Imagen portada" class="w-full rounded-lg">
+    </div>
+
+    <!-- Texto de bienvenida con animación de aparición -->
+    <div
+      class="w-full md:w-1/2 text-center md:text-left opacity-0 transform translate-y-10 transition duration-1000 ease-out delay-200"
+      [ngClass]="{'opacity-100 translate-y-0': isVisible}"
+    >
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        Bienvenido a EthicalOps
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300">
+        Explorando los avances en seguridad informática y cifrado
+      </p>
+      <a href="/cifrado" class="mt-6 inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-full text-white text-lg transition duration-300 ease-in-out transform hover:scale-105">
+        Conoce nuestro método de cifrado
+      </a>
+    </div>
+  </div>
+</section>
+<section class="bg-gradient-to-r from-blue-900 via-gray-800 to-blue-900  py-16 px-4">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">
+      Acerca de Nosotros
+    </h2>
+    <p class="text-gray-300 text-lg md:w-2/3 mx-auto mb-12">
+      Somos EthicalOps, un equipo de estudiantes de Ingeniería de Sistemas en la materia de Seguridad Informática I. Nuestro enfoque es la investigación y desarrollo de métodos avanzados de cifrado para contribuir a un futuro digital más seguro.
+    </p>
+
+    <!-- Equipo -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Miembro del equipo: Roider Millares -->
+      <div class="team-member bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <img src="https://via.placeholder.com/150" alt="Roider Millares" class="w-24 h-24 mx-auto rounded-full mb-4">
+        <h3 class="text-xl font-semibold text-white">Roider Millares</h3>
+        <p class="text-gray-400">Estudiante de Ingeniería de Sistemas</p>
+      </div>
+
+      <!-- Miembro del equipo: Amilcar Romero -->
+      <div class="team-member bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <img src="https://via.placeholder.com/150" alt="Amilcar Romero" class="w-24 h-24 mx-auto rounded-full mb-4">
+        <h3 class="text-xl font-semibold text-white">Amilcar Romero</h3>
+        <p class="text-gray-400">Estudiante de Ingeniería de Sistemas</p>
+      </div>
+
+      <!-- Miembro del equipo: Josue Huayllas -->
+      <div class="team-member bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <img src="https://via.placeholder.com/150" alt="Josue Huayllas" class="w-24 h-24 mx-auto rounded-full mb-4">
+        <h3 class="text-xl font-semibold text-white">Josue Huayllas</h3>
+        <p class="text-gray-400">Estudiante de Ingeniería de Sistemas</p>
+      </div>
+
+      <!-- Miembro del equipo: Yorbin Mier -->
+      <div class="team-member bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <img src="https://via.placeholder.com/150" alt="Yorbin Mier" class="w-24 h-24 mx-auto rounded-full mb-4">
+        <h3 class="text-xl font-semibold text-white">Yorbin Mier</h3>
+        <p class="text-gray-400">Estudiante de Ingeniería de Sistemas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section class="bg-gradient-to-r from-blue-900 via-gray-800 to-blue-900 py-16 px-4">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white">
+        Habilidades del Equipo
+      </h2>
+      <p class="text-gray-300 mb-12">
+        En EthicalOps, contamos con un conjunto diverso de habilidades que nos permiten abordar los desafíos de la seguridad informática de manera efectiva.
+      </p>
+  
+      <!-- Grilla de habilidades -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Habilidad: Frontend -->
+        <div class="skill-card bg-blue-600 text-white p-6 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-105">
+          <i class="fas fa-laptop-code text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold">Frontend Development</h3>
+          <p class="mt-2">Diseño y desarrollo de interfaces atractivas y funcionales.</p>
+        </div>
+  
+        <!-- Habilidad: Angular -->
+        <div class="skill-card bg-blue-600 text-white p-6 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-105">
+          <i class="fab fa-angular text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold">Angular</h3>
+          <p class="mt-2">Desarrollo de aplicaciones web modernas y dinámicas.</p>
+        </div>
+  
+        <!-- Habilidad: SQL Server -->
+        <div class="skill-card bg-blue-600 text-white p-6 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-105">
+          <i class="fas fa-database text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold">SQL Server</h3>
+          <p class="mt-2">Gestión de bases de datos eficientes y seguras.</p>
+        </div>
+  
+        <!-- Habilidad: API .NET Core -->
+        <div class="skill-card bg-blue-600 text-white p-6 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-105">
+          <i class="fas fa-cogs text-4xl mb-4"></i>
+          <h3 class="text-xl font-semibold">API .NET Core</h3>
+          <p class="mt-2">Creación de APIs robustas y escalables para aplicaciones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gradient-to-r from-blue-900 via-gray-800 to-blue-900 py-16 px-4">
+    <div class="container mx-auto text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white">
+        Noticias de Seguridad Informática
+      </h2>
+      <p class="text-gray-300 mb-12">
+        Mantente al día con las últimas tendencias y leyes en seguridad informática.
+      </p>
+    </div>
+  
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Tarjeta 1: Leyes de SGSI -->
+      <div class="bg-blue-700 text-white rounded-lg overflow-hidden shadow-md transition-transform duration-300 transform hover:scale-105">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpqsLjd7iL0egghGGUss5Z7jKgvIk64Pb9HA&s" alt="Leyes de SGSI" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">Leyes de SGSI</h3>
+          <p class="mt-2">Explora las normativas y regulaciones que rigen los Sistemas de Gestión de Seguridad de la Información.</p>
+          <a href="#" class="text-blue-200 hover:underline mt-4 block">Leer más</a>
+        </div>
+      </div>
+  
+      <!-- Tarjeta 2: Ataques DDoS -->
+      <div class="bg-blue-700 text-white rounded-lg overflow-hidden shadow-md transition-transform duration-300 transform hover:scale-105">
+        <img src="https://mi.certerus.com/images/articulos/DDoS-attack/DDoS-attack.jpg" alt="Ataques DDoS" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">Ataques DDoS</h3>
+          <p class="mt-2">Conoce qué son y cómo protegerte de los ataques de denegación de servicio distribuido.</p>
+          <a href="#" class="text-blue-200 hover:underline mt-4 block">Leer más</a>
+        </div>
+      </div>
+  
+      <!-- Tarjeta 3: Ciberseguridad en el Teletrabajo -->
+      <div class="bg-blue-700 text-white rounded-lg overflow-hidden shadow-md transition-transform duration-300 transform hover:scale-105">
+        <img src="https://www.caadpenedes.org/wp-content/uploads/image-52233.jpg" alt="Ciberseguridad en el Teletrabajo" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">Ciberseguridad en el Teletrabajo</h3>
+          <p class="mt-2">Consejos para mantener tu seguridad al trabajar desde casa.</p>
+          <a href="#" class="text-blue-200 hover:underline mt-4 block">Leer más</a>
+        </div>
+      </div>
+  
+      <!-- Tarjeta 4: Amenazas de Malware -->
+      <div class="bg-blue-700 text-white rounded-lg overflow-hidden shadow-md transition-transform duration-300 transform hover:scale-105">
+        <img src="https://www.datos101.com/wp-content/uploads/2023/12/malware.png" alt="Amenazas de Malware" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">Amenazas de Malware</h3>
+          <p class="mt-2">Aprende sobre las diferentes amenazas de malware y cómo protegerte de ellas.</p>
+          <a href="#" class="text-blue-200 hover:underline mt-4 block">Leer más</a>
+        </div>
+      </div>
+  
+      <!-- Tarjeta 5: Protección de Datos Personales -->
+      <div class="bg-blue-700 text-white rounded-lg overflow-hidden shadow-md transition-transform duration-300 transform hover:scale-105">
+        <img src="https://i0.wp.com/www.lenguajejuridico.com/wp-content/uploads/2021/10/Delegado-proteccio%CC%81n-datos.jpg?fit=900%2C650&ssl=1" alt="Protección de Datos Personales" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">Protección de Datos Personales</h3>
+          <p class="mt-2">Conoce las mejores prácticas para proteger tu información personal en línea.</p>
+          <a href="#" class="text-blue-200 hover:underline mt-4 block">Leer más</a>
+        </div>
+      </div>
+  
+      <!-- Tarjeta 6: Nuevas Tecnologías en Ciberseguridad -->
+      <div class="bg-blue-700 text-white rounded-lg overflow-hidden shadow-md transition-transform duration-300 transform hover:scale-105">
+        <img src="https://i0.wp.com/criptotendencia.com/wp-content/uploads/2024/07/Ciberseguridad.jpg?fit=1200%2C686&ssl=1" alt="Nuevas Tecnologías en Ciberseguridad" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">Nuevas Tecnologías en Ciberseguridad</h3>
+          <p class="mt-2">Descubre las innovaciones que están cambiando el campo de la ciberseguridad.</p>
+          <a href="#" class="text-blue-200 hover:underline mt-4 block">Leer más</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="bg-gradient-to-r from-blue-900 via-gray-800 to-blue-900 py-16 px-4">
+    <div class="container mx-auto text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white">
+        Lo Que Dicen los Ingenieros
+      </h2>
+      <p class="text-gray-300 mb-12">
+        Aquí tienes algunas opiniones sobre nuestro sistema de encriptación y cifrado.
+      </p>
+    </div>
+  
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Comentario 1: Ing. Hugo Guzmán -->
+      <div class="bg-blue-700 text-white rounded-lg p-6 shadow-md transition-transform duration-300 transform hover:scale-105">
+        <h3 class="text-xl font-semibold">Ing. Hugo Guzmán</h3>
+        <p class="mt-4 italic">“El sistema de encriptación de EthicalOps es excepcional. Me dio la confianza necesaria para manejar información sensible.”</p>
+      </div>
+  
+      <!-- Comentario 2: Ing. Wilmer Campos -->
+      <div class="bg-blue-700 text-white rounded-lg p-6 shadow-md transition-transform duration-300 transform hover:scale-105">
+        <h3 class="text-xl font-semibold">Ing. Wilmer Campos</h3>
+        <p class="mt-4 italic">“La facilidad de uso y la robustez de este sistema de cifrado son impresionantes. Recomiendo EthicalOps sin dudarlo.”</p>
+      </div>
+  
+      <!-- Comentario 3: Ing. Álvaro Moscoso -->
+      <div class="bg-blue-700 text-white rounded-lg p-6 shadow-md transition-transform duration-300 transform hover:scale-105">
+        <h3 class="text-xl font-semibold">Ing. Álvaro Moscoso</h3>
+        <p class="mt-4 italic">“El equipo de EthicalOps ha hecho un gran trabajo. La seguridad que ofrecen es una verdadera ventaja competitiva.”</p>
+      </div>
+    </div>
+  </section>
+  
+<app-footer></app-footer>
