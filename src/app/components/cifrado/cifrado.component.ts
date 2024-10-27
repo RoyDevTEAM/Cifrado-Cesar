@@ -19,7 +19,7 @@ export class CifradoComponent {
   private alfabeto: string = 'abcdefghijklmnñopqrstuvwxyz';
 
   cifrarTexto() {
-    if (!this.validarRango(this.desplazamiento)) {
+    if (!this.validarTexto(this.texto) || !this.validarRango(this.desplazamiento)) {
       return;
     }
 
@@ -48,7 +48,7 @@ export class CifradoComponent {
   }
 
   descifrarTexto() {
-    if (!this.validarRango(this.desplazamientoDescifrado)) {
+    if (!this.validarTexto(this.textoCifradoInput) || !this.validarRango(this.desplazamientoDescifrado)) {
       return;
     }
 
@@ -84,15 +84,13 @@ export class CifradoComponent {
       const nuevaPosicion = (baseIndex + desplazamiento + this.alfabeto.length) % this.alfabeto.length;
       const letraCifrada = this.alfabeto[nuevaPosicion];
 
-      // Mantener la misma mayúscula o minúscula que el original
       return char === char.toUpperCase() ? letraCifrada.toUpperCase() : letraCifrada;
     }
 
-    return char; // Si no es una letra del alfabeto español, no se cifra
+    return char;
   }
 
   descifrarCesar(texto: string, desplazamiento: number): string {
-    // Usar desplazamiento negativo para el descifrado
     return this.cifrarCesar(texto, -desplazamiento);
   }
 
@@ -103,8 +101,20 @@ export class CifradoComponent {
       .join('');
   }
 
+  validarTexto(texto: string): boolean {
+    if (!texto.trim()) {
+      alert('El campo de texto no debe estar vacío.');
+      return false;
+    }
+    return true;
+  }
+
   validarRango(desplazamiento: number | null): boolean {
-    if (desplazamiento === null || !Number.isInteger(desplazamiento)) {
+    if (desplazamiento === null) {
+      alert('El campo de desplazamiento no debe estar vacío.');
+      return false;
+    }
+    if (!Number.isInteger(desplazamiento)) {
       alert('El desplazamiento debe ser un número entero.');
       return false;
     }
@@ -115,7 +125,6 @@ export class CifradoComponent {
     return true;
   }
 
-  // Método de copiado
   copiarTexto(texto: string) {
     navigator.clipboard.writeText(texto).then(() => {
       alert('Texto copiado al portapapeles');
@@ -123,4 +132,4 @@ export class CifradoComponent {
       alert('Error al copiar el texto: ' + err);
     });
   }
-}
+      }
