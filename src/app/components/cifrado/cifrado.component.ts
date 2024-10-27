@@ -113,4 +113,12 @@ export class CifradoComponent {
     }
     return true;
   }
+   // Método de copiado
+   copiarTexto(texto: string) {
+    navigator.clipboard.writeText(texto).then(() => {
+      alert('Texto copiado al portapapeles');
+    }).catch(err => {
+      alert('Error al copiar el texto: ' + err);
+    });
+  }
         }
