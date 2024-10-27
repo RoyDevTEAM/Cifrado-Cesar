@@ -16,12 +16,13 @@ export class CifradoComponent {
   yaCifrado: boolean = false;
   yaDescifrado: boolean = false;
 
+  private alfabeto: string = 'abcdefghijklmnñopqrstuvwxyz';
+
   cifrarTexto() {
-    if (!this.validarTexto(this.texto) || !this.validarRango(this.desplazamiento)) {
+    if (!this.validarRango(this.desplazamiento)) {
       return;
     }
 
-    // Verificar si ya fue cifrado
     if (this.yaCifrado) {
       alert('El texto ya ha sido cifrado.');
       return;
@@ -29,7 +30,7 @@ export class CifradoComponent {
 
     this.cifradoAnimado = true;
     this.resultadoCifrado = '';
-    this.yaCifrado = true; // Marcar como cifrado
+    this.yaCifrado = true;
 
     let currentText = '';
     const chars = this.texto.split('');
@@ -42,23 +43,22 @@ export class CifradoComponent {
         if (index === chars.length - 1) {
           this.cifradoAnimado = false;
         }
-      }, index * 100); // intervalo de 100 ms por letra
+      }, index * 100); 
     });
   }
 
   descifrarTexto() {
-    if (!this.validarTexto(this.textoCifradoInput) || !this.validarRango(this.desplazamientoDescifrado)) {
+    if (!this.validarRango(this.desplazamientoDescifrado)) {
       return;
     }
 
-    // Verificar si ya fue descifrado
     if (this.yaDescifrado) {
       alert('El texto ya ha sido descifrado.');
       return;
     }
 
     this.resultadoDescifrado = this.descifrarCesar(this.textoCifradoInput, this.desplazamientoDescifrado!);
-    this.yaDescifrado = true; // Marcar como descifrado
+    this.yaDescifrado = true;
   }
 
   limpiarCifrado() {
@@ -66,22 +66,29 @@ export class CifradoComponent {
     this.desplazamiento = null;
     this.resultadoCifrado = '';
     this.cifradoAnimado = false;
-    this.yaCifrado = false; // Resetear estado de cifrado
+    this.yaCifrado = false;
   }
 
   limpiarDescifrado() {
     this.textoCifradoInput = '';
     this.desplazamientoDescifrado = null;
     this.resultadoDescifrado = '';
-    this.yaDescifrado = false; // Resetear estado de descifrado
+    this.yaDescifrado = false;
   }
 
   cifrarLetra(char: string, desplazamiento: number): string {
-    if (char.match(/[a-zA-Z]/)) {
-      const base = char.charCodeAt(0) >= 97 ? 97 : 65; 
-      return String.fromCharCode(((char.charCodeAt(0) - base + desplazamiento) % 26) + base);
+    const letraMinuscula = char.toLowerCase();
+    
+    if (this.alfabeto.includes(letraMinuscula)) {
+      const baseIndex = this.alfabeto.indexOf(letraMinuscula);
+      const nuevaPosicion = (baseIndex + desplazamiento) % this.alfabeto.length;
+      const letraCifrada = this.alfabeto[nuevaPosicion];
+      
+      // Mantener la misma mayúscula o minúscula que el original
+      return char === char.toUpperCase() ? letraCifrada.toUpperCase() : letraCifrada;
     }
-    return char;
+
+    return char; // Si no es una letra del alfabeto español, no se cifra
   }
 
   descifrarCesar(texto: string, desplazamiento: number): string {
@@ -89,19 +96,10 @@ export class CifradoComponent {
   }
 
   cifrarCesar(texto: string, desplazamiento: number): string {
-    return texto.split('').map(char => this.cifrarLetra(char, desplazamiento)).join('');
-  }
-
-  validarTexto(texto: string): boolean {
-    if (texto.trim() === '') {
-      alert('El texto no puede estar vacío.');
-      return false;
-    }
-    if (/[^a-zA-Z\s]/.test(texto)) {
-      alert('El texto solo puede contener letras y espacios.');
-      return false;
-    }
-    return true;
+    return texto
+      .split('')
+      .map(char => this.cifrarLetra(char, desplazamiento))
+      .join('');
   }
 
   validarRango(desplazamiento: number | null): boolean {
@@ -109,13 +107,10 @@ export class CifradoComponent {
       alert('El desplazamiento debe ser un número entero.');
       return false;
     }
+    if (desplazamiento < 0 || desplazamiento >= this.alfabeto.length) {
+      alert(`El desplazamiento debe estar entre 0 y ${this.alfabeto.length - 1}.`);
+      return false;
+    }
     return true;
   }
-
-  validarDesplazamiento() {
-    if (this.desplazamiento !== null && !Number.isInteger(this.desplazamiento)) {
-      alert('El desplazamiento debe ser un número entero.');
-      this.desplazamiento = null;
-    }
-  }
-}
+        }
