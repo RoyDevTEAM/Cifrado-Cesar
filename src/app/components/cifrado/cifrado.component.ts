@@ -43,7 +43,7 @@ export class CifradoComponent {
         if (index === chars.length - 1) {
           this.cifradoAnimado = false;
         }
-      }, index * 100); 
+      }, index * 100);
     });
   }
 
@@ -78,12 +78,12 @@ export class CifradoComponent {
 
   cifrarLetra(char: string, desplazamiento: number): string {
     const letraMinuscula = char.toLowerCase();
-    
+
     if (this.alfabeto.includes(letraMinuscula)) {
       const baseIndex = this.alfabeto.indexOf(letraMinuscula);
-      const nuevaPosicion = (baseIndex + desplazamiento) % this.alfabeto.length;
+      const nuevaPosicion = (baseIndex + desplazamiento + this.alfabeto.length) % this.alfabeto.length;
       const letraCifrada = this.alfabeto[nuevaPosicion];
-      
+
       // Mantener la misma mayúscula o minúscula que el original
       return char === char.toUpperCase() ? letraCifrada.toUpperCase() : letraCifrada;
     }
@@ -92,6 +92,7 @@ export class CifradoComponent {
   }
 
   descifrarCesar(texto: string, desplazamiento: number): string {
+    // Usar desplazamiento negativo para el descifrado
     return this.cifrarCesar(texto, -desplazamiento);
   }
 
@@ -113,12 +114,13 @@ export class CifradoComponent {
     }
     return true;
   }
-   // Método de copiado
-   copiarTexto(texto: string) {
+
+  // Método de copiado
+  copiarTexto(texto: string) {
     navigator.clipboard.writeText(texto).then(() => {
       alert('Texto copiado al portapapeles');
     }).catch(err => {
       alert('Error al copiar el texto: ' + err);
     });
   }
-        }
+}
